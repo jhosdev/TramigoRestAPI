@@ -13,7 +13,7 @@ public class UserSqlInfrastructure : IUserInfrastructure
     }
     public List<User> GetAll()
     {
-        return _context.Users.ToList();
+        return _context.Users.Where(category => category.IsActive).ToList();
     }
     
     public User? GetUser(int id)

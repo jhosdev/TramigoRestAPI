@@ -16,7 +16,7 @@ public class User
     public string? PaymentMethod { get; set; }
     public string? Company { get; set; }
     public string? Dni { get; set; }
-    public bool? IsActive { get; set; }
+    public bool IsActive { get; set; }
     
     public DateTime? CreatedAt { get; set; }
     
