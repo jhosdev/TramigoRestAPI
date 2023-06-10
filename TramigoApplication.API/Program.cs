@@ -32,7 +32,7 @@ builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
 
 //Conexion a MySQL 
 var connectionString = builder.Configuration.GetConnectionString("tramigoConnection");
-var serverVersion = new MySqlServerVersion(new Version(8, 0, 33));
+//var serverVersion = new MySqlServerVersion(new Version(8, 0, 33));
 
 builder.Services.AddDbContext<TramigoApplicationContext>(
     dbContextOptions =>
