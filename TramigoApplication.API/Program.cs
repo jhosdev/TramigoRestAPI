@@ -15,6 +15,20 @@ builder.Services.AddSwaggerGen();
 //Dependency Injection
 builder.Services.AddScoped<IUserInfrastructure, UserSqlInfrastructure>();
 builder.Services.AddScoped<IUserDomain, UserDomain>();
+builder.Services.AddScoped<ICategoryInfrastructure, CategoryMySqlInfrastructure>();
+builder.Services.AddScoped<ICategoryDomain, CategoryDomain>();
+builder.Services.AddScoped<IProcedureInfrastructure, ProcedureMySqlInfrastructure>();
+builder.Services.AddScoped<IProcedureDomain, ProcedureDomain>();
+builder.Services.AddScoped<IPaymentInfrastructure, PaymentMySqlInfrastructure>();
+builder.Services.AddScoped<IPaymentDomain, PaymentDomain>();
+builder.Services.AddScoped<IReceiptInfrastructure, ReceiptMySqlInfrastructure>();
+builder.Services.AddScoped<IReceiptDomain, ReceiptDomain>();
+
+//Cors
+builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
+{
+    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
 
 //Conexion a MySQL 
 var connectionString = builder.Configuration.GetConnectionString("tramigoConnection");
@@ -48,6 +62,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+//app.UseCors();
 
 app.UseAuthorization();
 

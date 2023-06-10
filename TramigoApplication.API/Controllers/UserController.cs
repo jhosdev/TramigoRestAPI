@@ -36,7 +36,7 @@ namespace TramigoApplication.API.Controllers
         }
 
         // GET: api/User/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}", Name = "User")]
         public IActionResult Get(int id)
         {
             var user = _userInfrastructure.GetUser(id);
@@ -46,17 +46,17 @@ namespace TramigoApplication.API.Controllers
 
         // POST: api/User
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] User user)
         {
             //log in console
-            _userDomain.SaveUser(value);
+            _userDomain.SaveUser(user);
         }
 
         // PUT: api/User/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] User user)
         {
-            _userDomain.UpdateUser(id, value);
+            _userDomain.UpdateUser(id, user);
         }
 
         // DELETE: api/User/5

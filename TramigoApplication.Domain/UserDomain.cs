@@ -1,5 +1,6 @@
 ﻿
 using TramigoApplication.Infrastructure;
+using TramigoApplication.Infrastructure.Models;
 
 namespace TramigoApplication.Domain;
 
@@ -18,16 +19,16 @@ public class UserDomain : IUserDomain
         return true;
     }
     
-    public bool SaveUser(string name)
+    public bool SaveUser(User user)
     {
-        if (!this.IsValidData(name)) throw new Exception("Name should be at least 3 characters long");
-        return _userInfrastructure.SaveUser(name);
+        if (!this.IsValidData(user.Name)) throw new Exception("Name should be at least 3 characters long");
+        return _userInfrastructure.SaveUser(user);
     }
     
-    public bool UpdateUser(int id,string name)
+    public bool UpdateUser(int id,User user)
     {
-        if (!this.IsValidData(name)) throw new Exception("Name should be at least 3 characters long");
-        return _userInfrastructure.UpdateUser(id,name);
+        if (!this.IsValidData(user.Name)) throw new Exception("Name should be at least 3 characters long");
+        return _userInfrastructure.UpdateUser(id,user);
     }
     
     public bool DeleteUser(int id)

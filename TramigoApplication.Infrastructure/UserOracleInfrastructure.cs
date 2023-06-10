@@ -15,12 +15,12 @@ public class UserOracleInfrastructure : IUserInfrastructure
         throw new NotImplementedException();
     }
     
-    public bool SaveUser(string name)
+    public bool SaveUser(User user)
     {
         throw new NotImplementedException();
     }
     
-    public bool UpdateUser(int id,string name)
+    public bool UpdateUser(int id,User user)
     {
         throw new NotImplementedException();
     }

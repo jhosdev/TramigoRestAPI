@@ -1,8 +1,10 @@
-﻿namespace TramigoApplication.Domain;
+﻿using TramigoApplication.Infrastructure.Models;
+
+namespace TramigoApplication.Domain;
 
 public interface IUserDomain
 {
-    public bool SaveUser(string name);
-    public bool UpdateUser(int id, string name);
+    public bool SaveUser(User user);
+    public bool UpdateUser(int id, User user);
     public bool DeleteUser(int id);
 }

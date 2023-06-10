@@ -21,21 +21,27 @@ public class UserSqlInfrastructure : IUserInfrastructure
         return _context.Users.Find(id);
     }
     
-    public bool SaveUser(string name)
+    public bool SaveUser(User user)
     {
-        User user = new User();
-        user.Name = name;
-        user.Username = name;
-        user.IsActive = true;
+        /*
+            User user = new User();
+            user.Name = _user.Name;
+            user.Username = _user.Name;
+            user.IsActive = true;
+         */
+        
         _context.Users.Add(user);
         _context.SaveChanges();
+        
         return true;
     }
     
-    public bool UpdateUser(int id,string name)
+    public bool UpdateUser(int id,User _user)
     {
-        User user = _context.Users.Find(id) ?? throw new InvalidOperationException();
-        user.Name = name;
+        var user = _context.Users.Find(id) ?? throw new InvalidOperationException();
+        
+        _context.Entry(user).CurrentValues.SetValues(_user);
+        
         _context.SaveChanges();
         return true;
     }

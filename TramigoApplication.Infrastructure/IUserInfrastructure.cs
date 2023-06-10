@@ -5,9 +5,11 @@ namespace TramigoApplication.Infrastructure;
 public interface IUserInfrastructure
 {
     List<User> GetAll();
+    User GetUser(int id);
     
-    User? GetUser(int id);
-    bool SaveUser(string name);
-    bool UpdateUser(int id,string name);
+    
+    
+    bool SaveUser(User user);
+    bool UpdateUser(int id,User user);
     bool DeleteUser(int id);
 }
