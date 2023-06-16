@@ -29,9 +29,9 @@ namespace TramigoApplication.API.Controllers
         [HttpGet(Name = "GetPayments")]
         public async Task<IActionResult> Get()
         {
-            var list = _paymentInfrastructure.GetAllAsync();
+            var list = await _paymentInfrastructure.GetAllAsync();
             //if list is empty return notFound
-            if (list.Result.Count == 0) return NotFound();
+            if (list.Count == 0) return NotFound();
             return Ok(list);
         }
 

@@ -25,9 +25,9 @@ builder.Services.AddScoped<IReceiptInfrastructure, ReceiptMySqlInfrastructure>()
 builder.Services.AddScoped<IReceiptDomain, ReceiptDomain>();
 
 //Cors
-builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
+builder.Services.AddCors(p => p.AddPolicy("CorsPolicy", builder =>
 {
-    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+    builder.WithOrigins("*").AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
 }));
 
 //Conexion a MySQL 
@@ -63,7 +63,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-//app.UseCors();
+app.UseCors("CorsPolicy");
 
 app.UseAuthorization();
 
