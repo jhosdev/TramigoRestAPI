@@ -40,6 +40,9 @@ public class CategoryMySqlInfrastructure : ICategoryInfrastructure
     
     public bool DeleteCategory(int id)
     {
+        var category = _context.Categories.Find(id);
+        
+        
         throw new NotImplementedException();
     }
 }

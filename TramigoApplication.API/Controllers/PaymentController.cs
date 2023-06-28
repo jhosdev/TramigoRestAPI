@@ -34,6 +34,16 @@ namespace TramigoApplication.API.Controllers
             if (list.Count == 0) return NotFound();
             return Ok(list);
         }
+        
+        // GET: api/Payment/Deleted
+        [HttpGet("Deleted", Name = "GetDeletedPayments")]
+        public async Task<IActionResult> GetDeletedPayments()
+        {
+            var deletedPayments = await _paymentInfrastructure.GetDeletedPaymentsAsync();
+            // if the list of deleted payments is empty, return NotFound
+            if (deletedPayments.Count == 0) return NotFound();
+            return Ok(deletedPayments);
+        }
 
         // GET: api/Payment/5
         [HttpGet("{id}", Name = "GetPayment")]

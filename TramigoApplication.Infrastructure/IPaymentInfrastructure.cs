@@ -6,6 +6,8 @@ public interface IPaymentInfrastructure
 {
     Task<List<Payment>> GetAllAsync();
     
+    Task<List<Payment>> GetDeletedPaymentsAsync();
+    
     Payment GetPayment(int id);
     
     bool SavePayment(Payment payment);

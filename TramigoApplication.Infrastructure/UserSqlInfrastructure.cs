@@ -16,6 +16,11 @@ public class UserSqlInfrastructure : IUserInfrastructure
         return _context.Users.Where(category => category.IsActive).ToList();
     }
     
+    public List<Payment> GetUserPayments(int id)
+    {
+        return _context.Payments.Where(payment => payment.UserId == id).ToList();
+    }
+    
     public User? GetUser(int id)
     {
         return _context.Users.Find(id);

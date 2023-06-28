@@ -43,6 +43,15 @@ namespace TramigoApplication.API.Controllers
             if (user == null) return NotFound();
             return Ok(user);
         }
+        
+        // GET: api/User/5/payments
+        [HttpGet("{id}/payments", Name = "UserPayments")]
+        public IActionResult GetPayments(int id)
+        {
+            var payments = _userInfrastructure.GetUserPayments(id);
+            if (payments == null) return NotFound();
+            return Ok(payments);
+        }
 
         // POST: api/User
         [HttpPost]

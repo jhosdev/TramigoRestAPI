@@ -18,6 +18,11 @@ public class PaymentMySqlInfrastructure : IPaymentInfrastructure
         return await _context.Payments.Where(p => p.IsActive).ToListAsync();
     }
     
+    public async Task<List<Payment>> GetDeletedPaymentsAsync()
+    {
+        return await _context.Payments.Where(p => p.IsActive).ToListAsync();
+    }
+    
     public Payment GetPayment(int id)
     {
         return _context.Payments.Find(id);

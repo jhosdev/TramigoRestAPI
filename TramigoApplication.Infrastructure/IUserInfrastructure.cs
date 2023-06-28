@@ -7,7 +7,7 @@ public interface IUserInfrastructure
     List<User> GetAll();
     User GetUser(int id);
     
-    
+    List<Payment> GetUserPayments(int id);
     
     bool SaveUser(User user);
     bool UpdateUser(int id,User user);
